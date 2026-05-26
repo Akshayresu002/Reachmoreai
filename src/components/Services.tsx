@@ -8,19 +8,20 @@ import {
   Layers,
   TrendingUp,
   Database,
+  PhoneCall,
 } from "lucide-react";
  
 const services = [
   {
-    title: "AI Automation",
-    id: "ai-automation",
+    title: "AI Voice Callers",
+    id: "ai-voice-callers",
     description:
-      "Formulate custom cognitive nodes and intelligent virtual agents to handle complex operations. ReachMore AI designs deep learning systems that execute back-office tasks, process data inputs, and scale human potential with absolute mathematical precision.",
-    icon: Cpu,
+      "Deploy high-fidelity automated voice agents that converse with complete human likeness and sub-second latencies. ReachMore AI designs elite callers that manage cold outreach, qualify inbound leads, and handle physical calendar scheduling on autopilot.",
+    icon: PhoneCall,
     color: "from-purple-500/20 to-indigo-500/5",
     border: "group-hover:border-purple-500/30",
     glow: "rgba(139, 92, 246, 0.15)",
-    features: ["Autonomous Agent Systems", "Cognitive Decision Engines", "Real-time Operations Sync"]
+    features: ["Sub-0.9s Speech Latency", "Human-Like Natural Intonation", "HubSpot & Salesforce Integrations"]
   },
   {
     title: "AI Chatbots",
