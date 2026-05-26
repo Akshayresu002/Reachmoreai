@@ -24,9 +24,9 @@ export const blogPosts: BlogPost[] = [
     date: "May 25, 2026",
     readTime: "8 min read",
     author: {
-      name: "Abhinay Chess",
+      name: "Abhinay Resu",
       role: "Chief AI Architect",
-      avatar: "AC"
+      avatar: "AR"
     },
     keywords: ["AI automation agency", "AI automation services", "ReachMore AI", "business process automation", "AI workflows"],
     glow: "rgba(139, 92, 246, 0.1)",
@@ -61,9 +61,9 @@ export const blogPosts: BlogPost[] = [
     date: "May 24, 2026",
     readTime: "6 min read",
     author: {
-      name: "Abhinay Chess",
+      name: "Abhinay Resu",
       role: "Conversational UX Director",
-      avatar: "AC"
+      avatar: "AR"
     },
     keywords: ["AI voice callers", "AI phone answering", "AI lead generation", "ReachMore AI"],
     glow: "rgba(139, 92, 246, 0.1)",
@@ -97,9 +97,9 @@ export const blogPosts: BlogPost[] = [
     date: "May 23, 2026",
     readTime: "5 min read",
     author: {
-      name: "Abhinay Chess",
+      name: "Abhinay Resu",
       role: "Chief AI Architect",
-      avatar: "AC"
+      avatar: "AR"
     },
     keywords: ["AI appointment setters", "AI lead response", "real estate AI", "ReachMore AI"],
     glow: "rgba(59, 130, 246, 0.1)",
@@ -135,9 +135,9 @@ export const blogPosts: BlogPost[] = [
     date: "May 22, 2026",
     readTime: "4 min read",
     author: {
-      name: "Abhinay Chess",
+      name: "Abhinay Resu",
       role: "Conversational UX Director",
-      avatar: "AC"
+      avatar: "AR"
     },
     keywords: ["AI phone answering", "lead response", "workflow automation agency", "ReachMore AI"],
     glow: "rgba(16, 185, 129, 0.08)",
@@ -167,9 +167,9 @@ export const blogPosts: BlogPost[] = [
     date: "May 21, 2026",
     readTime: "7 min read",
     author: {
-      name: "Abhinay Chess",
+      name: "Abhinay Resu",
       role: "Chief AI Architect",
-      avatar: "AC"
+      avatar: "AR"
     },
     keywords: ["AI chatbots for business", "workflow automation agency", "AI customer support", "ReachMore AI"],
     glow: "rgba(236, 72, 153, 0.08)",
@@ -229,9 +229,9 @@ export const blogPosts: BlogPost[] = [
     date: "May 20, 2026",
     readTime: "5 min read",
     author: {
-      name: "Abhinay Chess",
+      name: "Abhinay Resu",
       role: "Lead Systems Architect",
-      avatar: "AC"
+      avatar: "AR"
     },
     keywords: ["CRM automation services", "workflow automation", "AI lead generation", "ReachMore AI"],
     glow: "rgba(167, 139, 250, 0.1)",
@@ -264,9 +264,9 @@ export const blogPosts: BlogPost[] = [
     date: "May 19, 2026",
     readTime: "8 min read",
     author: {
-      name: "Abhinay Chess",
+      name: "Abhinay Resu",
       role: "Chief AI Architect",
-      avatar: "AC"
+      avatar: "AR"
     },
     keywords: ["AI sales systems", "CRM automation services", "AI lead generation", "ReachMore AI"],
     glow: "rgba(6, 182, 212, 0.08)",
@@ -302,9 +302,9 @@ export const blogPosts: BlogPost[] = [
     date: "May 24, 2026",
     readTime: "6 min read",
     author: {
-      name: "Abhinay Chess",
+      name: "Abhinay Resu",
       role: "Conversational UX Director",
-      avatar: "AC"
+      avatar: "AR"
     },
     keywords: ["AI voice agents", "AI automation agency", "ReachMore AI", "conversational AI", "CRM automation"],
     glow: "rgba(59, 130, 246, 0.1)",
@@ -335,9 +335,9 @@ export const blogPosts: BlogPost[] = [
     date: "May 23, 2026",
     readTime: "7 min read",
     author: {
-      name: "Abhinay Chess",
+      name: "Abhinay Resu",
       role: "Lead Systems Architect",
-      avatar: "AC"
+      avatar: "AR"
     },
     keywords: ["CRM automation", "workflow automation", "ReachMore AI", "AI automation services", "AI chatbots"],
     glow: "rgba(16, 185, 129, 0.08)",
@@ -364,9 +364,9 @@ export const blogPosts: BlogPost[] = [
     date: "May 22, 2026",
     readTime: "9 min read",
     author: {
-      name: "Abhinay Chess",
+      name: "Abhinay Resu",
       role: "Chief AI Architect",
-      avatar: "AC"
+      avatar: "AR"
     },
     keywords: ["workflow automation", "AI automation agency", "ReachMore AI", "AI automation services", "business process automation"],
     glow: "rgba(236, 72, 153, 0.08)",
@@ -396,9 +396,9 @@ export const blogPosts: BlogPost[] = [
     date: "May 21, 2026",
     readTime: "5 min read",
     author: {
-      name: "Abhinay Chess",
+      name: "Abhinay Resu",
       role: "Conversational UX Director",
-      avatar: "AC"
+      avatar: "AR"
     },
     keywords: ["AI chatbot agency", "AI chatbots", "ReachMore AI", "conversational AI", "lead generation automation"],
     glow: "rgba(6, 182, 212, 0.08)",
