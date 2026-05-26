@@ -51,7 +51,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-3xl sm:text-5xl font-semibold tracking-tight text-white mt-4 leading-tight"
             >
-              The ReachMoreAI Protocol
+              The ReachMore AI Protocol
             </motion.h2>
           </div>
           <motion.div
@@ -61,7 +61,7 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-5 text-neutral-400 font-light text-sm sm:text-base leading-relaxed"
           >
-            We are an elite squad of system engineers and conversational designers. At ReachMoreAI, we believe AI chatbots, workflows, and process automation pipelines should be indistinguishable from a hyper-trained, elite operations workforce.
+            We are an elite squad of system engineers and conversational designers. At ReachMore AI, we believe AI chatbots, workflows, and process automation pipelines should be indistinguishable from a hyper-trained, elite operations workforce.
           </motion.div>
         </div>
 

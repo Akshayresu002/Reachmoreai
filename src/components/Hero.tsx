@@ -75,27 +75,27 @@ export default function Hero() {
           className="mb-6 flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-3 py-1 text-xs tracking-widest text-neutral-400 uppercase font-mono"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
-          ReachMoreAI Solutions
+          ReachMore AI Solutions
         </motion.div>
-
+ 
         {/* Massive Majestic Typography Headline */}
         <motion.h1
           variants={itemVariants}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.15] mb-6 select-none max-w-5xl"
         >
-          ReachMoreAI –
+          ReachMore AI –
           <br />
           <span className="bg-gradient-to-b from-white via-neutral-100 to-neutral-400 bg-clip-text text-transparent">
             AI Automation Agency for Modern Businesses
           </span>
         </motion.h1>
-
+ 
         {/* Cinematic, readable Subheadline */}
         <motion.p
           variants={itemVariants}
           className="text-base sm:text-lg text-neutral-300/90 max-w-2xl leading-relaxed mb-10 font-light"
         >
-          We help businesses automate workflows, lead generation, customer support, and operations using advanced AI systems. ReachMoreAI empowers companies to unlock maximum scaling velocity and operational leverage.
+          We help businesses automate workflows, lead generation, customer support, and operations using advanced AI systems. ReachMore AI empowers companies to unlock maximum scaling velocity and operational leverage.
         </motion.p>
 
         {/* Premium CTA Buttons */}

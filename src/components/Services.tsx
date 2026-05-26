@@ -15,7 +15,7 @@ const services = [
     title: "AI Automation",
     id: "ai-automation",
     description:
-      "Formulate custom cognitive nodes and intelligent virtual agents to handle complex operations. ReachMoreAI designs deep learning systems that execute back-office tasks, process data inputs, and scale human potential with absolute mathematical precision.",
+      "Formulate custom cognitive nodes and intelligent virtual agents to handle complex operations. ReachMore AI designs deep learning systems that execute back-office tasks, process data inputs, and scale human potential with absolute mathematical precision.",
     icon: Cpu,
     color: "from-purple-500/20 to-indigo-500/5",
     border: "group-hover:border-purple-500/30",
@@ -26,7 +26,7 @@ const services = [
     title: "AI Chatbots",
     id: "ai-chatbots",
     description:
-      "Enterprise-grade contextual chat engines that understand product specs, respond in real-time, and capture high-intent leads. Our ReachMoreAI chatbots integrate with Web, WhatsApp, and CRM layers to ensure flawless customer communication flows.",
+      "Enterprise-grade contextual chat engines that understand product specs, respond in real-time, and capture high-intent leads. Our ReachMore AI chatbots integrate with Web, WhatsApp, and CRM layers to ensure flawless customer communication flows.",
     icon: MessageSquare,
     color: "from-blue-500/20 to-cyan-500/5",
     border: "group-hover:border-blue-500/30",
@@ -37,7 +37,7 @@ const services = [
     title: "Workflow Automation",
     id: "workflow-automation",
     description:
-      "Connect disparate databases, APIs, and cloud microservices. ReachMoreAI engineers robust, fault-tolerant AI workflows and trigger-based data pipelines that keep your data synchronized across systems without human intervention.",
+      "Connect disparate databases, APIs, and cloud microservices. ReachMore AI engineers robust, fault-tolerant AI workflows and trigger-based data pipelines that keep your data synchronized across systems without human intervention.",
     icon: Layers,
     color: "from-emerald-500/20 to-teal-500/5",
     border: "group-hover:border-emerald-500/30",
@@ -48,7 +48,7 @@ const services = [
     title: "Lead Generation Systems",
     id: "lead-generation-systems",
     description:
-      "Secure predictable customer acquisition pipelines with custom lead generation automation. ReachMoreAI designs automated outbound campaigns, hyper-personalized email sequencing, and booking calendar flows that schedule qualified calls on auto-pilot.",
+      "Secure predictable customer acquisition pipelines with custom lead generation automation. ReachMore AI designs automated outbound campaigns, hyper-personalized email sequencing, and booking calendar flows that schedule qualified calls on auto-pilot.",
     icon: TrendingUp,
     color: "from-orange-500/20 to-amber-500/5",
     border: "group-hover:border-orange-500/30",
@@ -107,7 +107,7 @@ export default function Services() {
             transition={{ duration: 0.6 }}
             className="text-xs font-mono tracking-widest text-purple-400 uppercase"
           >
-            ReachMoreAI Infrastructure
+            ReachMore AI Infrastructure
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -125,7 +125,7 @@ export default function Services() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-neutral-400 font-light leading-relaxed"
           >
-            As a leading AI Automation Agency, ReachMoreAI designs, trains, and orchestrates custom AI Chatbots and advanced data workflows to capture missing revenue, speed up client response cycles, and automate manual overhead.
+            As a leading AI Automation Agency, ReachMore AI designs, trains, and orchestrates custom AI Chatbots and advanced data workflows to capture missing revenue, speed up client response cycles, and automate manual overhead.
           </motion.p>
         </div>
  

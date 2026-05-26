@@ -23,13 +23,13 @@ export default function Footer() {
               href="#home"
               onClick={(e) => handleScrollTo(e, "#home")}
               className="flex items-center gap-1 text-white font-semibold tracking-wider text-base mb-4 cursor-pointer"
-              aria-label="ReachMoreAI Home"
+              aria-label="ReachMore AI Home"
             >
-              ReachMoreAI
+              ReachMore AI
               <span className="text-purple-500 font-bold">.</span>
             </a>
             <p className="text-xs font-light text-neutral-500 max-w-[240px] leading-relaxed mb-6">
-              ReachMoreAI is a premier AI Automation Agency engineering advanced AI Workflows, custom AI Chatbots, and automated Lead Generation Systems to accelerate scaling for modern businesses.
+              ReachMore AI is a premier AI Automation Agency engineering advanced AI Workflows, custom AI Chatbots, and automated Lead Generation Systems to accelerate scaling for modern businesses.
             </p>
             {/* Social icons */}
             <div className="flex items-center gap-3">
@@ -175,7 +175,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="pt-8 border-t border-neutral-900 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-[10px] text-neutral-500">
           <div className="flex items-center gap-1">
-            <span>© 2026 ReachMoreAI. Engineering precision.</span>
+            <span>© 2026 ReachMore AI. Engineering precision.</span>
           </div>
 
           {/* Operational Status (Linear/Vercel Style) */}

@@ -96,7 +96,7 @@ export default function CinematicPreloader() {
 
             {/* Title Badge */}
             <div className="flex items-center gap-1 font-semibold tracking-wider text-base mb-6 text-white">
-              ReachMoreAI
+              ReachMore AI
               <span className="text-purple-500 font-bold">.</span>
             </div>
 
