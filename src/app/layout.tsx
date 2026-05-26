@@ -16,31 +16,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ReachMore AI | Premium AI Automation Agency & Autonomous Caller Systems",
-  description: "We engineer enterprise-grade AI voice callers, automated CRM integrations, workflow automation, and intelligent chatbots to accelerate sales pipeline velocity and scale operations.",
+  title: "ReachMoreAI | AI Automation Agency",
+  description: "ReachMoreAI helps businesses automate operations using AI workflows, AI chatbots, lead generation systems, and automation solutions.",
   keywords: [
-    "AI automation agency",
-    "AI voice callers",
-    "AI appointment setters",
-    "AI chatbots for business",
-    "CRM automation services",
+    "ReachMoreAI",
+    "AI Automation Agency",
+    "AI Workflows",
+    "Business Automation",
+    "AI Chatbots",
+    "Lead Generation Automation",
     "workflow automation agency",
     "AI customer support",
     "AI lead generation",
-    "AI phone answering",
+    "business process automation",
   ],
-  authors: [{ name: "ReachMore AI Engineering" }],
+  authors: [{ name: "ReachMoreAI Engineering" }],
   openGraph: {
-    title: "ReachMore AI | Premium AI Automation Agency",
-    description: "Enterprise-grade AI voice callers, CRM automation services, and workflow automation systems built for hyper-growth.",
+    title: "ReachMoreAI | AI Automation Agency",
+    description: "ReachMoreAI helps businesses automate operations using AI workflows, AI chatbots, lead generation systems, and automation solutions.",
     type: "website",
     locale: "en_US",
-    siteName: "ReachMore AI",
+    siteName: "ReachMoreAI",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ReachMore AI | Premium AI Automation Agency",
-    description: "Enterprise-grade AI voice callers, CRM automation services, and workflow automation systems built for hyper-growth.",
+    title: "ReachMoreAI | AI Automation Agency",
+    description: "ReachMoreAI helps businesses automate operations using AI workflows, AI chatbots, lead generation systems, and automation solutions.",
   },
 };
 

@@ -60,13 +60,12 @@ export default function Navbar() {
             href="#home"
             onClick={(e) => handleScrollTo(e, "#home")}
             className="flex items-center gap-2 group cursor-pointer"
+            aria-label="ReachMoreAI Home"
+            title="ReachMoreAI"
           >
             <span className="font-semibold text-lg tracking-wider text-white flex items-center">
-              ReachMore
+              ReachMoreAI
               <span className="text-purple-500 font-black ml-0.5 group-hover:animate-pulse">.</span>
-              <span className="text-xs bg-purple-500/10 border border-purple-500/20 text-purple-400 font-mono py-0.5 px-2 rounded-full ml-2 scale-90">
-                AI
-              </span>
             </span>
           </a>
 

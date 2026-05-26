@@ -95,12 +95,9 @@ export default function CinematicPreloader() {
             </motion.div>
 
             {/* Title Badge */}
-            <div className="flex items-center gap-1.5 font-semibold tracking-wider text-base mb-6 text-white">
-              ReachMore
+            <div className="flex items-center gap-1 font-semibold tracking-wider text-base mb-6 text-white">
+              ReachMoreAI
               <span className="text-purple-500 font-bold">.</span>
-              <span className="text-[10px] bg-purple-500/10 border border-purple-500/20 text-purple-400 font-mono py-0.5 px-2 rounded-full scale-90">
-                AI
-              </span>
             </div>
 
             {/* Diagnostic Message */}

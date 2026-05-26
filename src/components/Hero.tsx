@@ -75,18 +75,18 @@ export default function Hero() {
           className="mb-6 flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-3 py-1 text-xs tracking-widest text-neutral-400 uppercase font-mono"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
-          Next-Gen AI Systems
+          ReachMoreAI Solutions
         </motion.div>
 
         {/* Massive Majestic Typography Headline */}
         <motion.h1
           variants={itemVariants}
-          className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-6 select-none"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.15] mb-6 select-none max-w-5xl"
         >
-          Autonomous Systems For
+          ReachMoreAI –
           <br />
-          <span className="bg-gradient-to-b from-white via-neutral-100 to-neutral-500 bg-clip-text text-transparent">
-            Modern Businesses
+          <span className="bg-gradient-to-b from-white via-neutral-100 to-neutral-400 bg-clip-text text-transparent">
+            AI Automation Agency for Modern Businesses
           </span>
         </motion.h1>
 
@@ -95,19 +95,20 @@ export default function Hero() {
           variants={itemVariants}
           className="text-base sm:text-lg text-neutral-300/90 max-w-2xl leading-relaxed mb-10 font-light"
         >
-          We engineer enterprise-grade AI voice callers, automated CRM integrations, and intelligent workflow architectures to secure absolute operational leverage.
+          We help businesses automate workflows, lead generation, customer support, and operations using advanced AI systems. ReachMoreAI empowers companies to unlock maximum scaling velocity and operational leverage.
         </motion.p>
 
         {/* Premium CTA Buttons */}
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 mb-8">
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 mb-8">
           <motion.button
-            onClick={(e: any) => handleScrollTo(e, "services")}
-            whileHover={{ scale: 1.03, y: -2, boxShadow: "0 10px 30px rgba(255, 255, 255, 0.15)" }}
+            onClick={(e: any) => handleScrollTo(e, "contact")}
+            whileHover={{ scale: 1.03, y: -2, boxShadow: "0 10px 30px rgba(139, 92, 246, 0.3)" }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 15 }}
-            className="group relative flex items-center gap-2 rounded-full bg-white px-7 py-3 text-[13px] font-semibold text-black transition-all duration-300 btn-shine-container cursor-pointer"
+            className="group relative flex items-center gap-2 rounded-full bg-white px-7 py-3 text-[13px] font-semibold text-black transition-all duration-300 btn-shine-container cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+            aria-label="Automate Your Business"
           >
-            <span>See How It Works</span>
+            <span>Automate Your Business</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
           </motion.button>
 
@@ -115,14 +116,27 @@ export default function Hero() {
             href="https://calendly.com/abhinaychess/30min"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.03, y: -2, borderColor: "rgba(255, 255, 255, 0.35)", boxShadow: "0 10px 30px rgba(139, 92, 246, 0.15)" }}
+            whileHover={{ scale: 1.03, y: -2, borderColor: "rgba(139, 92, 246, 0.4)", boxShadow: "0 10px 30px rgba(139, 92, 246, 0.15)" }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 15 }}
             className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-7 py-3 text-[13px] font-semibold text-white transition-all duration-300 btn-shine-container"
+            aria-label="Book a Call"
           >
             <Play className="w-3.5 h-3.5 fill-white" />
-            <span>Book a Consultation</span>
+            <span>Book a Call</span>
           </motion.a>
+
+          <motion.button
+            onClick={(e: any) => handleScrollTo(e, "services")}
+            whileHover={{ scale: 1.03, y: -2, borderColor: "rgba(255, 255, 255, 0.25)" }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 15 }}
+            className="group flex items-center gap-2 rounded-full border border-white/5 bg-neutral-900/40 backdrop-blur-md px-7 py-3 text-[13px] font-semibold text-neutral-300 hover:text-white transition-all duration-300 btn-shine-container cursor-pointer"
+            aria-label="Get Started"
+          >
+            <span>Get Started</span>
+            <ArrowRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+          </motion.button>
         </motion.div>
       </motion.div>
 
