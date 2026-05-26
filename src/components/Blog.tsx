@@ -3,85 +3,20 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Clock, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { blogPosts } from "@/data/blogPosts";
 
-interface Article {
-  title: string;
-  category: string;
-  readTime: string;
-  snippet: string;
-  slug: string;
-  keywords: string[];
-  glow: string;
-}
-
-const articles: Article[] = [
-  {
-    title: "The Ultimate Guide to AI Voice Agents for Small Businesses",
-    category: "Guides",
-    readTime: "6 min read",
-    snippet: "Discover how human-like artificial intelligence callers answer inbound phone lines, resolve customer problems, and generate recurring meetings automatically.",
-    slug: "guide-to-ai-voice-agents",
-    keywords: ["AI voice callers", "AI phone answering", "AI lead generation"],
-    glow: "rgba(139, 92, 246, 0.1)",
-  },
-  {
-    title: "How Real Estate Agents Use AI to Book More Appointments",
-    category: "Case Studies",
-    readTime: "5 min read",
-    snippet: "Learn the exact conversational framework top realtors use to capture cold inquiries and instantly secure scheduled calendar bookings without lifting a finger.",
-    slug: "real-estate-ai-appointments",
-    keywords: ["AI appointment setters", "AI lead response", "real estate AI"],
-    glow: "rgba(59, 130, 246, 0.1)",
-  },
-  {
-    title: "Why Car Detailing Businesses Need AI Phone Answering",
-    category: "Insights",
-    readTime: "4 min read",
-    snippet: "Stop letting missed phone calls go to local competitors. Here is how automated answering systems ensure every inquiry gets priced, booked, and closed.",
-    slug: "car-detailing-ai-answering",
-    keywords: ["AI phone answering", "lead response", "workflow automation agency"],
-    glow: "rgba(16, 185, 129, 0.08)",
-  },
-  {
-    title: "Agentic AI vs Traditional Chatbots",
-    category: "Tech",
-    readTime: "7 min read",
-    snippet: "An in-depth analysis of simple if-then decision trees vs autonomous, context-aware AI agents designed to handle fluid customer service dialogues.",
-    slug: "agentic-ai-vs-traditional-chatbots",
-    keywords: ["AI chatbots for business", "workflow automation agency", "AI customer support"],
-    glow: "rgba(236, 72, 153, 0.08)",
-  },
-  {
-    title: "AI CRM Automation for SaaS Companies",
-    category: "Operations",
-    readTime: "5 min read",
-    snippet: "Optimize your product pipeline by integrating outbound call records, customer sentiment scores, and trigger logic directly into Salesforce and HubSpot.",
-    slug: "ai-crm-automation-saas",
-    keywords: ["CRM automation services", "workflow automation", "AI lead generation"],
-    glow: "rgba(167, 139, 250, 0.1)",
-  },
-  {
-    title: "The Future of AI Sales Systems",
-    category: "Deep Dives",
-    readTime: "8 min read",
-    snippet: "How highly personalized predictive outreach, multi-channel automated messaging, and hyper-targeted lead lists are changing sales pipelines.",
-    slug: "future-of-ai-sales-systems",
-    keywords: ["AI sales systems", "CRM automation services", "AI lead generation"],
-    glow: "rgba(6, 182, 212, 0.08)",
-  },
-];
-
-const categories = ["All", "Guides", "Case Studies", "Insights", "Tech", "Operations", "Deep Dives"];
+const categories = ["All", ...Array.from(new Set(blogPosts.map((post) => post.category)))];
 
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredArticles = articles.filter((article) => {
+  const filteredArticles = blogPosts.filter((article) => {
     const matchesCategory = selectedCategory === "All" || article.category === selectedCategory;
     const matchesSearch =
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      article.snippet.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      article.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       article.keywords.some((k) => k.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
@@ -186,82 +121,83 @@ export default function Blog() {
         >
           <AnimatePresence mode="popLayout">
             {filteredArticles.map((art) => (
-              <motion.article
-                layout
-                key={art.slug}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                className="group relative flex flex-col justify-between rounded-2xl glass-card overflow-hidden p-6 min-h-[440px] cursor-pointer"
-                style={{
-                  transition: "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s",
-                }}
-              >
-                {/* Volumetric spotlights */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+              <Link href={`/blog/${art.slug}`} key={art.slug} className="block group">
+                <motion.article
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  className="relative flex flex-col justify-between rounded-2xl glass-card overflow-hidden p-6 min-h-[440px] cursor-pointer border border-white/5 bg-white/[0.02] hover:border-purple-500/20 transition-all duration-300"
                   style={{
-                    background: `radial-gradient(circle 200px at var(--x, 0px) var(--y, 0px), ${art.glow}, transparent 80%)`,
+                    transition: "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s",
                   }}
-                />
+                >
+                  {/* Volumetric spotlights */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(circle 200px at var(--x, 0px) var(--y, 0px), ${art.glow}, transparent 80%)`,
+                    }}
+                  />
 
-                {/* Sweeping reading progress line gauge on hover */}
-                <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-purple-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left pointer-events-none" />
+                  {/* Sweeping reading progress line gauge on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-purple-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left pointer-events-none" />
 
-                <div>
-                  {/* Visual Tech Thumbnail Gradient Box */}
-                  <div className="w-full aspect-[2/1] rounded-xl overflow-hidden mb-5 bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 border border-white/5 relative group-hover:border-purple-500/20 transition-all duration-300">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/5 via-transparent to-blue-500/5 opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
-                    {/* Decorative orbital wireframes inside the thumbnail */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full border border-dashed border-white/5 group-hover:border-purple-500/10 group-hover:rotate-[20deg] transition-all duration-700" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full border border-white/5 group-hover:border-blue-500/15 group-hover:rotate-[-20deg] transition-all duration-700" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white/20 group-hover:bg-purple-500/40 shadow-[0_0_8px_rgba(139,92,246,0.3)] transition-all duration-500" />
+                  <div>
+                    {/* Visual Tech Thumbnail Gradient Box */}
+                    <div className="w-full aspect-[2/1] rounded-xl overflow-hidden mb-5 bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 border border-white/5 relative group-hover:border-purple-500/20 transition-all duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/5 via-transparent to-blue-500/5 opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+                      {/* Decorative orbital wireframes inside the thumbnail */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full border border-dashed border-white/5 group-hover:border-purple-500/10 group-hover:rotate-[20deg] transition-all duration-700" />
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full border border-white/5 group-hover:border-blue-500/15 group-hover:rotate-[-20deg] transition-all duration-700" />
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white/20 group-hover:bg-purple-500/40 shadow-[0_0_8px_rgba(139,92,246,0.3)] transition-all duration-500" />
+                    </div>
+
+                    {/* Category & Read Time */}
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest font-semibold">
+                        {art.category}
+                      </span>
+                      <div className="flex items-center gap-1 text-[10px] font-mono text-neutral-500">
+                        <Clock className="w-3.5 h-3.5" />
+                        <span>{art.readTime}</span>
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg font-medium text-white mb-3 leading-snug group-hover:text-purple-300 transition-colors duration-300">
+                      {art.title}
+                    </h3>
+
+                    {/* Snippet */}
+                    <p className="text-xs font-light text-neutral-400 leading-relaxed mb-6 line-clamp-3">
+                      {art.description}
+                    </p>
                   </div>
 
-                  {/* Category & Read Time */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest font-semibold">
-                      {art.category}
-                    </span>
-                    <div className="flex items-center gap-1 text-[10px] font-mono text-neutral-500">
-                      <Clock className="w-3.5 h-3.5" />
-                      <span>{art.readTime}</span>
+                  {/* Bottom Keyword Tags & Link */}
+                  <div>
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                      {art.keywords.map((kw) => (
+                        <span
+                          key={kw}
+                          className="text-[9px] font-mono bg-white/5 border border-white/5 text-neutral-400 py-0.5 px-2 rounded-full"
+                        >
+                          #{kw.replace(/\s+/g, "").toLowerCase()}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-400 group-hover:text-white transition-colors duration-300 font-medium">
+                      <span>Read Article</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </div>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="text-lg font-medium text-white mb-3 leading-snug group-hover:text-purple-300 transition-colors duration-300">
-                    {art.title}
-                  </h3>
-
-                  {/* Snippet */}
-                  <p className="text-xs font-light text-neutral-400 leading-relaxed mb-6">
-                    {art.snippet}
-                  </p>
-                </div>
-
-                {/* Bottom Keyword Tags & Link */}
-                <div>
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {art.keywords.map((kw) => (
-                      <span
-                        key={kw}
-                        className="text-[9px] font-mono bg-white/5 border border-white/5 text-neutral-400 py-0.5 px-2 rounded-full"
-                      >
-                        #{kw.replace(/\s+/g, "").toLowerCase()}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-400 group-hover:text-white transition-colors duration-300 font-medium">
-                    <span>Read Article</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </div>
-                </div>
-              </motion.article>
+                </motion.article>
+              </Link>
             ))}
           </AnimatePresence>
         </motion.div>
