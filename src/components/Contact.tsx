@@ -32,8 +32,8 @@ export default function Contact() {
     },
     {
       name: "Direct Email",
-      value: "resuabhinay@gmail.com",
-      href: "mailto:resuabhinay@gmail.com",
+      value: "reachmoreaiagency@gmail.com",
+      href: "mailto:reachmoreaiagency@gmail.com",
       icon: Mail,
       color: "hover:text-purple-400 hover:border-purple-400/20 hover:bg-purple-400/5",
     },
