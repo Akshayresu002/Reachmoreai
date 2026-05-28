@@ -51,14 +51,15 @@ export async function POST(req: NextRequest) {
         phone: string;
         company: string;
         requirement: string;
-        sessionId: string;
+        sessionId?: string;
       };
 
-      if (!name || !phone || !company || !requirement || !sessionId) {
+      if (!name || !phone || !company || !requirement) {
         return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
       }
 
-      const lead = await saveLead({ name, phone, company, requirement, sessionId });
+      const sId = sessionId || `session_manual_${Math.random().toString(36).substring(2, 11)}`;
+      const lead = await saveLead({ name, phone, company, requirement, sessionId: sId });
       return NextResponse.json({ success: true, lead });
     }
 

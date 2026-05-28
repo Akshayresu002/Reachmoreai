@@ -88,6 +88,32 @@ export default function ChatbotAdminPanel() {
     }
   }, []);
 
+  // Silent background polling every 10 seconds for real-time lead updates
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    const interval = setInterval(() => {
+      const quietFetch = async () => {
+        try {
+          const [resSettings, resLeads, resSessions] = await Promise.all([
+            fetch("/api/admin?action=getSettings"),
+            fetch("/api/admin?action=getLeads"),
+            fetch("/api/admin?action=getSessions")
+          ]);
+          if (resSettings.ok && resLeads.ok && resSessions.ok) {
+            setSettings(await resSettings.json());
+            setLeads(await resLeads.json());
+            setSessions(await resSessions.json());
+          }
+        } catch (err) {
+          console.error("Quiet background polling failed:", err);
+        }
+      };
+      quietFetch();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [isAuthenticated]);
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (username.trim() === "admin" && password === "Admin9059") {
@@ -302,6 +328,13 @@ export default function ChatbotAdminPanel() {
             </div>
             
             <div className="flex items-center gap-3">
+              <button
+                onClick={fetchDashboardData}
+                className="flex items-center gap-1 bg-white/5 border border-white/5 hover:border-white/10 hover:bg-white/10 text-neutral-300 hover:text-white rounded-full px-3 py-1.5 text-[11px] font-mono transition cursor-pointer"
+              >
+                <span>REFRESH</span>
+                <Sparkles className="w-3 h-3 text-[#FE5D26] animate-pulse" />
+              </button>
               <span className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-full px-3 py-1.5 text-[11px] font-mono">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 SYSTEM RUNNING
