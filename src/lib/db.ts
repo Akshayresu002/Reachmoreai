@@ -196,8 +196,8 @@ export async function saveLead(leadData: {
 
   await safeWrite(db);
 
-  // Synchronize to Google Sheets Webhook in the background if URL is provided
-  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  // Synchronize to Google Sheets Webhook in the background
+  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL || "https://script.google.com/macros/s/AKfycbwv2vj-dNEdfca96zxX3PjSTmdizTZnJzTGwJ-uz2mCPGXNxGE-ELCObdJEFhPLboWUuA/exec";
   if (webhookUrl) {
     const leadSource = leadData.sessionId.includes("manual") ? "Chatbot Form" : "Conversational AI";
     fetch(webhookUrl, {
