@@ -4,6 +4,7 @@ import "./globals.css";
 import CinematicPreloader from "@/components/CinematicPreloader";
 import MouseGlowTracker from "@/components/MouseGlowTracker";
 import GlobalBackgroundCanvas from "@/components/GlobalBackgroundCanvas";
+import Chatbot from "@/components/Chatbot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -131,6 +132,9 @@ export default function RootLayout({
         <GlobalBackgroundCanvas />
 
         {children}
+
+        {/* Premium AI Live Chatbot Widget */}
+        <Chatbot />
       </body>
     </html>
   );
