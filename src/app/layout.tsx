@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import CinematicPreloader from "@/components/CinematicPreloader";
 import MouseGlowTracker from "@/components/MouseGlowTracker";
 import GlobalBackgroundCanvas from "@/components/GlobalBackgroundCanvas";
 import Chatbot from "@/components/Chatbot";
@@ -121,9 +120,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-black text-white relative">
         {/* Global Cinematic noise grain overlay */}
         <div className="noise-overlay" />
-
-        {/* Global preloading portal */}
-        <CinematicPreloader />
 
         {/* Cursor follow ambient volumetric glow orb */}
         <MouseGlowTracker />

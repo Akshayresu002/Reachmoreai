@@ -2,17 +2,65 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSettings, saveSession, saveLead, Message } from "@/lib/db";
 import { getWebsiteKnowledgeContext } from "@/lib/knowledge";
 
+function getLocalFallbackAnswer(userMessage: string, faqs: any[]): string {
+  const msg = userMessage.toLowerCase();
+
+  // 1. Check for specific dynamic FAQs from dashboard overrides
+  for (const faq of faqs) {
+    if (
+      msg.includes(faq.question.toLowerCase()) || 
+      faq.question.toLowerCase().split(" ").every((word: string) => word.length < 3 || msg.includes(word))
+    ) {
+      return faq.answer;
+    }
+  }
+
+  // 2. Keyword matching rules
+  if (msg.includes("qualify") || msg.includes("lead") || msg.includes("filter")) {
+    return "Absolutely! Reachmore AI specializes in automating real estate lead qualification. Our AI voice callers answer calls instantly 24/7, ask serious buyers questions about budgets, locations, and timeframes, and filter out non-serious queries so your sales team only focuses on hot prospects. 🚀";
+  }
+
+  if (msg.includes("hindi") || msg.includes("telugu") || msg.includes("language") || msg.includes("speak")) {
+    return "Yes! Our AI voice agents support regional turn-taking and natural accent modulations in English, Hindi, Telugu, and multiple other Indian languages. They speak naturally just like human agents! 🗣️";
+  }
+
+  if (msg.includes("cost") || msg.includes("price") || msg.includes("pricing") || msg.includes("fee")) {
+    return "Pricing depends on your call volume, workflows, and CRM database integrations. The best option is to book a quick demo with the Reachmore AI team to get a tailored quote 👌. Click the **'Book Demo'** action button above to choose a slot directly on our Calendly!";
+  }
+
+  if (msg.includes("crm") || msg.includes("integrate") || msg.includes("hubspot") || msg.includes("salesforce") || msg.includes("sync")) {
+    return "Yes, indeed! We build complete CRM pipelines to sync leads captured by our callers and chatbots directly into your existing CRM (HubSpot, Salesforce, custom APIs, WhatsApp alerts) in real-time. ⚡";
+  }
+
+  if (msg.includes("site visit") || msg.includes("appointment") || msg.includes("book") || msg.includes("demo")) {
+    return "Yes! Booking site visits is one of our primary automations. Our voice agent qualifies the prospect's interest and directly drops a booking slot into your Calendly, HubSpot, or Salesforce calendar, notifying your agent instantly. 📅";
+  }
+
+  if (msg.includes("how") || msg.includes("what does") || msg.includes("help") || msg.includes("service")) {
+    return "Reachmore AI helps builders, brokers, and developers automate their outbound cold calling, inbound qualification, follow-ups, and site visit bookings using sub-0.9s delay AI voice agents. We take the heavy lifting off your sales team! 🚀\n\nClick **'Book Demo'** above to schedule a quick system architecture consultation and get a custom caller blueprint!";
+  }
+
+  // 3. Elegant, polite general fallback that encourages lead booking
+  return "I can certainly help you with that! Reachmore AI builds highly premium AI voice callers and workflow automation networks specifically for real estate agents and developers. 🚀\n\nTo ensure you get absolute priority, please click the **'Book Demo'** action button above to share your details and secure a priority technical slot on our Calendly! We will draft a custom system blueprint for you.";
+}
+
 export async function POST(req: NextRequest) {
+  let settings: any = null;
+  let sessionId = "session_unknown";
+  let messages: Message[] = [];
+
   try {
     const body = await req.json();
-    const { messages, sessionId } = body as { messages: Message[]; sessionId: string };
+    const parsed = body as { messages: Message[]; sessionId: string };
+    messages = parsed.messages || [];
+    sessionId = parsed.sessionId || "session_unknown";
 
     if (!messages || !sessionId) {
       return NextResponse.json({ error: "Missing parameters" }, { status: 400 });
     }
 
     // 1. Load active admin settings and FAQs
-    const settings = await getSettings();
+    settings = await getSettings();
 
     // 2. Check if Chatbot is globally enabled
     if (!settings.enabled) {
@@ -68,12 +116,24 @@ You are in active sales mode. If a visitor shows interest in Reachmore AI's voic
       })
     });
 
+    const lastUserMessage = messages.filter(m => m.sender === "user").pop()?.text || "";
+
     if (!response.ok) {
       const errorText = await response.text();
       console.error("LongCat AI API error:", errorText);
+      
+      const fallbackText = getLocalFallbackAnswer(lastUserMessage, settings.faqs || []);
+      
+      // Save session fallback history log
+      const finalMessages: Message[] = [
+        ...messages,
+        { sender: "assistant", text: fallbackText, timestamp: new Date().toISOString() }
+      ];
+      await saveSession(sessionId, finalMessages);
+
       return NextResponse.json({ 
-        text: "I would love to help you with that! 🚀 We are currently experiencing exceptionally high demand for our autonomous voice agent setups, which has temporarily congested my AI conversational node.\n\nTo ensure you get absolute priority, please click the **'Book Demo'** action button above to register your details and choose a slot directly on our Calendly. We'll have a custom system architecture blueprint prepared for your real estate business!",
-        error: false
+        text: fallbackText,
+        leadCaptured: false
       });
     }
 
@@ -117,9 +177,20 @@ You are in active sales mode. If a visitor shows interest in Reachmore AI's voic
 
   } catch (error: any) {
     console.error("Chat Server API Error:", error);
+    const lastUserMessage = messages.filter(m => m.sender === "user").pop()?.text || "";
+    const fallbackText = getLocalFallbackAnswer(lastUserMessage, settings?.faqs || []);
+    
+    try {
+      const finalMessages: Message[] = [
+        ...messages,
+        { sender: "assistant", text: fallbackText, timestamp: new Date().toISOString() }
+      ];
+      await saveSession(sessionId, finalMessages);
+    } catch {}
+
     return NextResponse.json({
-      text: "I would love to help you with that! 🚀 We are currently experiencing exceptionally high demand for our autonomous voice agent setups, which has temporarily congested my AI conversational node.\n\nTo ensure you get absolute priority, please click the **'Book Demo'** action button above to register your details and choose a slot directly on our Calendly. We'll have a custom system architecture blueprint prepared for your real estate business!",
-      error: false
+      text: fallbackText,
+      leadCaptured: false
     });
   }
 }

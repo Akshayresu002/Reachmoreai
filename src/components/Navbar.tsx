@@ -12,7 +12,6 @@ const navLinks = [
   { name: "Blogs", href: "#blogs" },
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
-  { name: "Login", href: "/chatbot-admin", isExternal: true },
 ];
 
 export default function Navbar() {
@@ -76,11 +75,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={(e) => {
-                  if (!link.isExternal) {
-                    handleScrollTo(e, link.href);
-                  }
-                }}
+                onClick={(e) => handleScrollTo(e, link.href)}
                 className="relative px-4 py-1.5 text-[13px] font-medium text-neutral-400 hover:text-white transition-colors duration-300 rounded-full"
               >
                 {link.name}
@@ -139,13 +134,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.05 }}
                     href={link.href}
-                    onClick={(e) => {
-                      if (!link.isExternal) {
-                        handleScrollTo(e, link.href);
-                      } else {
-                        setMobileMenuOpen(false);
-                      }
-                    }}
+                    onClick={(e) => handleScrollTo(e, link.href)}
                     className="text-lg font-medium text-neutral-400 hover:text-white transition-colors py-1"
                   >
                     {link.name}
