@@ -19,8 +19,8 @@ export default function Contact() {
     },
     {
       name: "Instagram",
-      value: "@abhiinay01",
-      href: "https://www.instagram.com/abhiinay01/",
+      value: "@reachmoreai_",
+      href: "https://www.instagram.com/reachmoreai_/",
       icon: (props: any) => (
         <svg className="w-4.5 h-4.5 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" {...props}>
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
