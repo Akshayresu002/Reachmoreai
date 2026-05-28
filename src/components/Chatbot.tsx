@@ -201,11 +201,16 @@ export default function Chatbot() {
 
       if (res.ok) {
         setLeadFormSubmitted(true);
-        try {
-          window.open("https://calendly.com/abhinaychess/30min", "_blank");
-        } catch (err) {
-          console.error("Popup window blocked by browser setting:", err);
-        }
+        // Construct pre-filled Calendly link with user details to enhance user experience
+        const calendlyUrl = `https://calendly.com/abhinaychess/30min` +
+          `?name=${encodeURIComponent(leadData.name)}` +
+          `&phone=${encodeURIComponent(leadData.phone)}` +
+          `&a1=${encodeURIComponent(leadData.phone)}` +
+          `&a2=${encodeURIComponent(leadData.company)}` +
+          `&a3=${encodeURIComponent(leadData.requirement)}`;
+        
+        // Redirect in the same tab seamlessly to completely avoid browser popup blockers
+        window.location.href = calendlyUrl;
       } else {
         throw new Error("Lead submission failed");
       }
@@ -514,7 +519,7 @@ export default function Chatbot() {
                       </p>
                       
                       <a
-                        href="https://calendly.com/abhinaychess/30min"
+                        href={`https://calendly.com/abhinaychess/30min?name=${encodeURIComponent(leadData.name)}&phone=${encodeURIComponent(leadData.phone)}&a1=${encodeURIComponent(leadData.phone)}&a2=${encodeURIComponent(leadData.company)}&a3=${encodeURIComponent(leadData.requirement)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => {

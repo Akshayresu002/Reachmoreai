@@ -195,6 +195,34 @@ export async function saveLead(leadData: {
   }
 
   await safeWrite(db);
+
+  // Synchronize to Google Sheets Webhook in the background if URL is provided
+  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  if (webhookUrl) {
+    const leadSource = leadData.sessionId.includes("manual") ? "Chatbot Form" : "Conversational AI";
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        name: leadData.name,
+        phone: leadData.phone,
+        company: leadData.company,
+        requirement: leadData.requirement,
+        sessionId: leadData.sessionId,
+        leadSource: leadSource
+      })
+    }).then(res => {
+      if (res.ok) {
+        console.log("Successfully synchronized lead to Google Sheets");
+      } else {
+        console.error("Google Sheets sync failed with status:", res.status);
+      }
+    }).catch(err => {
+      console.error("Failed to connect to Google Sheets webhook:", err);
+    });
+  }
+
   return newLead;
 }
 
