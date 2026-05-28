@@ -55,11 +55,42 @@
         {
           "sender": "assistant",
           "text": "Pricing depends on your call volume, workflows, and automation requirements. The best option is to book a quick demo with the Reachmore AI team 👌",
-          "timestamp": "2026-05-28T08:49:35.292Z"
+          "timestamp": "02:19 PM"
+        },
+        {
+          "sender": "assistant",
+          "text": "Perfect! Thank you **Akshay Resu**! 🚀 I've passed your requirement (*We want AI voice callers to automate property site visit bookings*) straight to our conversational engineering team. We'll be in touch within 2 hours!",
+          "timestamp": "02:21 PM"
+        },
+        {
+          "sender": "user",
+          "text": "Can it speak Hindi?",
+          "timestamp": "02:54 PM"
+        },
+        {
+          "sender": "assistant",
+          "text": "Yes! Our AI voice agents support regional turn-taking and natural accent modulations in English, Hindi, Telugu, and multiple other Indian languages. They speak naturally just like human agents! 🗣️",
+          "timestamp": "2026-05-28T09:24:38.926Z"
         }
       ],
-      "timestamp": "2026-05-28T08:49:35.297Z",
+      "timestamp": "2026-05-28T09:24:38.943Z",
       "leadCaptured": true
+    },
+    {
+      "id": "session_test_diagnostics",
+      "messages": [
+        {
+          "sender": "user",
+          "text": "Can it speak Hindi?"
+        },
+        {
+          "sender": "assistant",
+          "text": "Yes! Our AI voice agents support regional turn-taking and natural accent modulations in English, Hindi, Telugu, and multiple other Indian languages. They speak naturally just like human agents! 🗣️",
+          "timestamp": "2026-05-28T09:25:11.680Z"
+        }
+      ],
+      "timestamp": "2026-05-28T09:25:11.685Z",
+      "leadCaptured": false
     }
   ]
 }
