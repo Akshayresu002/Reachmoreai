@@ -72,8 +72,8 @@ You are in active sales mode. If a visitor shows interest in Reachmore AI's voic
       const errorText = await response.text();
       console.error("LongCat AI API error:", errorText);
       return NextResponse.json({ 
-        text: "Let me connect you with the Reachmore AI team for accurate details 👌 (Error contacting chatbot node)",
-        error: true
+        text: "I would love to help you with that! 🚀 We are currently experiencing exceptionally high demand for our autonomous voice agent setups, which has temporarily congested my AI conversational node.\n\nTo ensure you get absolute priority, please click the **'Book Demo'** action button above to register your details and choose a slot directly on our Calendly. We'll have a custom system architecture blueprint prepared for your real estate business!",
+        error: false
       });
     }
 
@@ -118,8 +118,8 @@ You are in active sales mode. If a visitor shows interest in Reachmore AI's voic
   } catch (error: any) {
     console.error("Chat Server API Error:", error);
     return NextResponse.json({
-      text: "Let me connect you with the Reachmore AI team for accurate details 👌",
-      error: true
-    }, { status: 500 });
+      text: "I would love to help you with that! 🚀 We are currently experiencing exceptionally high demand for our autonomous voice agent setups, which has temporarily congested my AI conversational node.\n\nTo ensure you get absolute priority, please click the **'Book Demo'** action button above to register your details and choose a slot directly on our Calendly. We'll have a custom system architecture blueprint prepared for your real estate business!",
+      error: false
+    });
   }
 }

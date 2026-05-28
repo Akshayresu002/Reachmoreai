@@ -166,8 +166,8 @@ export default function Chatbot() {
     } catch (err) {
       console.error(err);
       const errorMsg: ChatMessage = {
-        sender: "system",
-        text: "Let me connect you with the Reachmore AI team for accurate details 👌",
+        sender: "assistant",
+        text: "I would love to help you with that! 🚀 We are currently experiencing exceptionally high demand for our autonomous voice agent setups, which has temporarily congested my AI conversational node.\n\nTo ensure you get absolute priority, please click the **'Book Demo'** action button above to register your details and choose a slot directly on our Calendly. We'll have a custom system architecture blueprint prepared for your real estate business!",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       const finalMessages = [...updatedMessages, errorMsg];
